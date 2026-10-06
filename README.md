@@ -84,3 +84,7 @@ Dalsin Limited's Amiga changes (the build script, patches, configuration
 headers and tests) are MIT, Copyright (c) 2026 Dalsin Limited: see
 [LICENSE](LICENSE). libwebp, libvpx keep their own licences, in
 [upstream/](upstream/); a patch to their source stays under that licence.
+
+## Contributors
+
+openamigamedialibrary is created and maintained by [SacredTrees](https://github.com/SacredTrees) with the AmigaChrome agent team, copyright Dalsin Limited. Everyone whose work it includes is credited in [`CONTRIBUTORS.md`](CONTRIBUTORS.md).
