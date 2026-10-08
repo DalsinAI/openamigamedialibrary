@@ -6,7 +6,7 @@ VP9 video). openamigaimage's webp.datatype and webm.datatype are built on them. 
 ports, made for [OpenBrowser](https://github.com/DalsinAI/openamigabrowser),
 the WebKit browser for AmigaOS 3.2.
 
-**Status:** Working: builds, and both libraries decode on the bench exactly as on a PC.
+**Status:** Working: builds, and both libraries decode on the bench exactly as on x86 cores.
 
 This repository holds the Amiga build, not libwebp, libvpx itself: a build script,
 patches, a smoke test and the upstream licences.
@@ -54,7 +54,7 @@ DH1:OB/webp/lossy-alpha.webp 50 20 alpha=1 ca376736
 DH1:OB/webp/anim.webp 32 32 alpha=0 02bb8100
 ```
 
-The checksums are the same as on a PC: the WebP sums equal libwebp 1.6.0's on Linux, and all 60 video frames (30 VP8, 30 VP9, 160x120) equal libvpx 1.17.0's on Linux, frame for frame. The test files are openamigaimage's (`Datatypes/tests/make-media.sh`), with the WebM clips' frames copied into IVF files; the full output is in `tests/bench-output.txt`.
+The checksums are the same as on x86 cores: the WebP sums equal libwebp 1.6.0's on Linux, and all 60 video frames (30 VP8, 30 VP9, 160x120) equal libvpx 1.17.0's on Linux, frame for frame. The test files are openamigaimage's (`Datatypes/tests/make-media.sh`), with the WebM clips' frames copied into IVF files; the full output is in `tests/bench-output.txt`.
 
 `tests/vpxtest.c`, as `vpxtest DH1:OB/vpx/vp8.ivf DH1:OB/vpx/vp9.ivf`:
 
