@@ -1,6 +1,6 @@
 /* openamigamedialibrary check for libwebp: decode WebP files (the first
  * frame of an animation) and print an ARGB checksum, on a PC or an Amiga.
- * MIT, Copyright (c) 2026 Dalsin Limited. */
+ * MIT, Copyright (c) 2026 AmigaChrome Team. */
 #include <stdio.h>
 #include <stdlib.h>
 #include "webp/decode.h"
