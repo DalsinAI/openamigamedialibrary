@@ -2,7 +2,7 @@
  * openamigamedialibrary check for libvpx: decode every frame of IVF files
  * (VP8 or VP9) and print a checksum of each picture's Y, U and V planes, so
  * an Amiga's results can be compared with a PC's.
- * MIT, Copyright (c) 2026 Dalsin Limited.
+ * MIT, Copyright (c) 2026 AmigaChrome Team.
  */
 #include <stdio.h>
 #include <stdlib.h>
