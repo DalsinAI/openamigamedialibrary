@@ -38,7 +38,7 @@ tarballs from [SOURCES](SOURCES) in `tarballs/`. Then:
 ```
 
 The libraries and headers land in `out/` (set `PREFIX` to change that). The
-script prints which other settings it needs, if any. Target: 68020 or better, with or without an FPU (`-m68020`), libnix
+script prints which other settings it needs, if any. Target: the 68040, no FPU code (`-m68040`), libnix
 (`-mcrt=nix20`): the code is integer only, so datatypes can use it too.
 
 Link with: `-lwebpdemux -lwebpdecoder -lvpx`

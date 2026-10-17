@@ -1,5 +1,5 @@
 #!/bin/sh
-# openamigamedialibrary: libwebp and libvpx, built for AmigaOS 3.x (68020 + FPU) with the
+# openamigamedialibrary: libwebp and libvpx, built for AmigaOS 3.x (68040, integer only) with the
 # os32-gcc16 compiler (bebbo's amiga-gcc, GCC 16.2, libnix, libpthread).
 # MIT, Copyright (c) 2026 AmigaChrome Team. The library keeps its own licence.
 #
@@ -22,7 +22,7 @@ WORK="$HERE/work"
 CC="$P/bin/m68k-amigaos-gcc"
 CXX="$P/bin/m68k-amigaos-g++"
 AR="$P/bin/m68k-amigaos-ar"
-CPU=${OS32_CPU_FLAGS:-"-m68020 -m68881 -mcrt=nix20"}
+CPU=${OS32_CPU_FLAGS:-"-m68040 -m68881 -mcrt=nix20"}
 CFLAGS="-O2 $CPU -fno-delete-null-pointer-checks -D_DEFAULT_SOURCE=1 -D_POSIX_TIMERS=1 -D_POSIX_REALTIME_SIGNALS=1 -fno-common"
 mkdir -p "$OUT/include" "$OUT/lib" "$WORK"
 
@@ -56,8 +56,8 @@ archive() {
 }
 
 # Integer code only, built without FPU instructions: the same libraries serve
-# programs and datatypes on any 68020 or better.
-CFLAGS="-O2 -m68020 -mcrt=nix20 -fno-delete-null-pointer-checks -fomit-frame-pointer -DNDEBUG -DWORDS_BIGENDIAN"
+# programs and datatypes on the 68040.
+CFLAGS="-O2 -m68040 -mcrt=nix20 -fno-delete-null-pointer-checks -fomit-frame-pointer -DNDEBUG -DWORDS_BIGENDIAN"
 
 unpack libwebp libwebp-1.6.0.tar.gz e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564
 cd "$WORK/libwebp/libwebp-1.6.0"
