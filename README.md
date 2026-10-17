@@ -40,6 +40,9 @@ tarballs from [SOURCES](SOURCES) in `tarballs/`. Then:
 The libraries and headers land in `out/` (set `PREFIX` to change that). The
 script prints which other settings it needs, if any. Target: the 68040, no FPU code (`-m68040`), libnix
 (`-mcrt=nix20`): the code is integer only, so datatypes can use it too.
+Programs that link these libraries build soft float too: `-m68040` with
+`-specs=build/m68k-soft-m68040.specs` (from this repository), so the link
+takes libnix's soft maths and the program runs on a 68LC040 or 68EC040.
 
 Link with: `-lwebpdemux -lwebpdecoder -lvpx`
 

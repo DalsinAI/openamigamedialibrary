@@ -22,7 +22,10 @@ WORK="$HERE/work"
 CC="$P/bin/m68k-amigaos-gcc"
 CXX="$P/bin/m68k-amigaos-g++"
 AR="$P/bin/m68k-amigaos-ar"
-CPU=${OS32_CPU_FLAGS:-"-m68040 -m68881 -mcrt=nix20"}
+# Soft float: -m68040 links libnix's soft libm020, not libm881
+# (build/m68k-soft-m68040.specs: -m68040 alone would link the FPU libm).
+SOFT="-specs=$HERE/build/m68k-soft-m68040.specs"
+CPU=${OS32_CPU_FLAGS:-"-m68040 $SOFT -mcrt=nix20"}
 CFLAGS="-O2 $CPU -fno-delete-null-pointer-checks -D_DEFAULT_SOURCE=1 -D_POSIX_TIMERS=1 -D_POSIX_REALTIME_SIGNALS=1 -fno-common"
 mkdir -p "$OUT/include" "$OUT/lib" "$WORK"
 
@@ -57,7 +60,7 @@ archive() {
 
 # Integer code only, built without FPU instructions: the same libraries serve
 # programs and datatypes on the 68040.
-CFLAGS="-O2 -m68040 -mcrt=nix20 -fno-delete-null-pointer-checks -fomit-frame-pointer -DNDEBUG -DWORDS_BIGENDIAN"
+CFLAGS="-O2 -m68040 $SOFT -mcrt=nix20 -fno-delete-null-pointer-checks -fomit-frame-pointer -DNDEBUG -DWORDS_BIGENDIAN"
 
 unpack libwebp libwebp-1.6.0.tar.gz e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564
 cd "$WORK/libwebp/libwebp-1.6.0"
